@@ -1,0 +1,13 @@
+public class Main {
+    public static void main(String[] args) {
+        double distance = 10.0; // начальный пробег в первый день
+        double totalDistance = distance; // суммарный пробег
+        System.out.println("Пробег лыжника за первый день: " + distance + " км");
+        for (int i = 2; i <= 10; i++) {
+            distance *= 1.1; // увеличиваем пробег на 10%
+            totalDistance += distance; // добавляем пробег к суммарному пробегу
+            System.out.println("Пробег лыжника за " + i + " день: " + distance + " км");
+        }
+        System.out.println("Суммарный пробег за 10 дней: " + totalDistance + " км");
+    }
+}
