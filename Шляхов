@@ -1,0 +1,15 @@
+public class Main {
+    public static void main(String[] args) {
+        int sum = 0; // сумма всех чисел
+        int count = 0; // количество чисел
+
+        // цикл для перебора всех чисел от 1 до 1000
+        for (int i = 1; i <= 1000; i++) {
+            sum += i; // добавляем текущее число к сумме
+            count++; // увеличиваем счетчик чисел
+        }
+
+        double average = (double) sum / count; // вычисляем среднее арифметическое
+        System.out.println("Среднее арифметическое всех чисел от 1 до 1000: " + average);
+    }
+}
