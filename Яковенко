@@ -1,13 +1,48 @@
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        double distance = 10.0; // начальный пробег в первый день
-        double totalDistance = distance; // суммарный пробег
-        System.out.println("Пробег лыжника за первый день: " + distance + " км");
-        for (int i = 2; i <= 10; i++) {
-            distance *= 1.1; // увеличиваем пробег на 10%
-            totalDistance += distance; // добавляем пробег к суммарному пробегу
-            System.out.println("Пробег лыжника за " + i + " день: " + distance + " км");
+        Scanner scanner = new Scanner(System.in);
+
+        // Вводим массив с клавиатуры
+        System.out.print("Введите длину массива: ");
+        int n = scanner.nextInt();
+        int[] arr = new int[n];
+        System.out.println("Введите элементы массива:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = scanner.nextInt();
         }
-        System.out.println("Суммарный пробег за 10 дней: " + totalDistance + " км");
+
+        // Находим минимальный и максимальный элементы массива
+        int min = arr[0];
+        int max = arr[0];
+        for (int i = 1; i < n; i++) {
+            if (arr[i] < min) {
+                min = arr[i];
+            }
+            if (arr[i] > max) {
+                max = arr[i];
+            }
+        }
+
+        // Вычисляем среднее арифметическое минимального и максимального элементов
+        double avg = (min + max) / 2.0;
+
+        // Подсчитываем количество элементов массива, значение которых больше среднего арифметического
+        int count = 0;
+        for (int i = 0; i < n; i++) {
+            if (arr[i] > avg) {
+                count++;
+            }
+        }
+
+        // Выводим порядковые номера найденных элементов
+        System.out.println("Количество элементов, значение которых больше среднего арифметического минимального и максимального элементов: " + count);
+        System.out.print("Их порядковые номера: ");
+        for (int i = 0; i < n; i++) {
+            if (arr[i] > avg) {
+                System.out.print(i + " ");
+            }
+        }
     }
 }
